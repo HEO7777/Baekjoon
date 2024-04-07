@@ -8,27 +8,48 @@
 # š	     s=
 # ž	     z=
 
-
+# Better code
 import sys
 input = sys.stdin.readline
-print = sys.stdout.write
 
+# Note that the order of "dz=" and "z=" is important
+lst = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 word = input().rstrip()
-lst = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
-rest = len(word)
-n = 0
 
-# 리스트 속 해당 문자열이 있는 개수만큼 더하기
-# 그리고 리스트 속 해당 문자열 길이와 개수의 곱을 빼주기
-for symbol in lst:
-    if symbol in word:
-        n += word.count(symbol)
-        rest -= len(symbol) * word.count(symbol)
-# "dz="과 "z="의 중복 없애기 : "dz="의 개수가 무조건 두 배가 됨
-# 나머지 알파벳 수도 중복때문에 줄어들었으니 보충하기
-# 나머지 알파벳 개수 더해주기
-n -= word.count("dz=")
-rest += len("z=") * word.count("dz=")
-n += rest
+# By replacing the symbols with '_', we can solve this problem more easily!
+for s in lst:
+    word = word.replace(s, '_')
 
-print("%d" % n)
+print(len(word))
+
+
+# import sys
+# # Simplify the name of the functions
+# input = sys.stdin.readline
+# print = sys.stdout.write
+
+# # inputed string
+# word = input().rstrip()
+# # some Croatian alphabets replaced with symbols
+# lst = ["c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="]
+# # the number of rest alphabets except the symbols
+# rest = len(word)
+# # the total number of the Croatian alphabets
+# n = 0
+
+# # Add the number of symbols existing in the list
+# # Subtract the product of the number of symbols in the list and the length of them from rest
+# for symbol in lst:
+#     if symbol in word:
+#         n += word.count(symbol)
+#         rest -= len(symbol) * word.count(symbol)
+# # Exclude the overlapping addition of the numbers of "dz=" and "z="
+# # the number of "dz=" is doubled
+# # Add as much as the decline of the rest, caused by the overlapping addition
+# # Add the number of the rest alphabets to n
+# n -= word.count("dz=")
+# rest += len("z=") * word.count("dz=")
+# n += rest
+
+# # Note that sys.stdout.write() argument must be str, not int
+# print("%d" % n)
