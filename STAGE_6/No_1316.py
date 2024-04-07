@@ -23,6 +23,8 @@ for _ in range(n):
 
 print("%d" % cnt)
 
+
+
 # import sys
 # input = sys.stdin.readline
 # print = sys.stdout.write
@@ -42,6 +44,8 @@ print("%d" % cnt)
 #             break
 
 # print("%d" % tot)
+
+
 
 # import sys
 # input = sys.stdin.readline
